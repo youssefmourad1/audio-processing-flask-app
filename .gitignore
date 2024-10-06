@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+*.wav
+*.mp3
+separated_vocals.wav
+temp_*.wav

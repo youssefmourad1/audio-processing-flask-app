@@ -1,0 +1,16 @@
+Flask
+wget
+text-unidecode
+nemo_toolkit[asr] @ git+https://github.com/NVIDIA/NeMo.git@main
+torchaudio
+pyannote.audio
+openai-whisper
+pydub
+speechbrain
+groq
+demucs
+deepfilternet
+librosa
+numpy
+scipy
+torch
