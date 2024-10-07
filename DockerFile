@@ -1,29 +1,28 @@
-# Utiliser une image de base officielle Python
-FROM python:3.9-slim
+# Use the Python slim image
+FROM python:3.11-slim
 
-# Installer les dépendances système
+# Install required system packages
 RUN apt-get update && apt-get install -y \
     sox \
     libsndfile1 \
     ffmpeg \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
-# Définir le répertoire de travail
+# Set working directory
 WORKDIR /app
 
-# Copier les fichiers requirements et installer les dépendances Python
+# Copy requirements
 COPY requirements.txt .
+
+# Upgrade pip
 RUN pip install --upgrade pip
+
+# Install Python dependencies
 RUN pip install -r requirements.txt
 
-# Copier le reste de l'application
+# Copy the rest of the application
 COPY . .
 
-# Exposer le port utilisé par Flask
-EXPOSE 5000
-
-# Définir la variable d'environnement pour Flask
-ENV FLASK_APP=app/main.py
-
-# Commande pour lancer l'application
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Set the command to run your app
+CMD ["python", "app.py"]  # or the entry point of your application
