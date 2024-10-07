@@ -5,5 +5,5 @@ def create_app():
     app.config.from_object('app.config.Config')
 
     with app.app_context():
-        from . import main
+        from . import app
         return app
