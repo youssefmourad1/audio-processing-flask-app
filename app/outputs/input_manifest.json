@@ -1,0 +1,1 @@
+{"audio_filepath": "outputs/mono_separated_vocals_DeepFilterNet3.wav", "offset": 0, "duration": null, "label": "infer", "text": "-", "num_speakers": 2, "rttm_filepath": "outputs/pred_rttms/mono_separated_vocals_DeepFilterNet3.rttm", "uem_filepath": null}

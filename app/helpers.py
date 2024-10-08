@@ -69,6 +69,7 @@ def process_audio(audio_path, output_dir, brands_file, reference_audio_path, gro
         return filtered_discussion
 
 def apply_demucs_and_deepfilter(audio_path):
+    print("Applying Demucs and DeepFilterNet...")
     model = get_model('htdemucs')
     wav, sr = torchaudio.load(audio_path)
     wav = wav.unsqueeze(0)  # Ajouter la dimension batch
@@ -83,9 +84,16 @@ def apply_demucs_and_deepfilter(audio_path):
 def apply_deepfilter(audio_path):
     """Applique DeepFilterNet pour nettoyer l'audio."""
     filename = os.path.basename(audio_path)
+    output_dir = "/tmp"  # Change this to a writable directory
     output_file = filename.replace(".mp3", "_DeepFilterNet3.mp3")
-    os.system(f'deepFilter "{audio_path}" --output-dir /app')
-    return os.path.join("/app", output_file)
+    print(f"Applying DeepFilterNet to {filename}...")
+    
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+    
+    os.system(f'deepFilter "{audio_path}" --output-dir {output_dir}')
+    print(f"DeepFilterNet applied. Output saved as {output_file}")
+    return os.path.join(output_dir, output_file)
 
 def convert_to_mono(audio_path, output_dir):
     waveform, sample_rate = torchaudio.load(audio_path)
