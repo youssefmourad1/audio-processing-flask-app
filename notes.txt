@@ -1,0 +1,10 @@
+sudo apt update
+sudo apt upgrade
+sudo apt install python3 python3-pip python3-venv
+sudo apt install ffmpeg
+cd audio
+python3 -m venv venv
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+add this to dockerfile
+source $HOME/.cargo/env
