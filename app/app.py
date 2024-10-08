@@ -26,8 +26,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Explicitly include the API keys
-groq_key = "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"
-hg_key = "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"
+groq_key = "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"
+hg_key = "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"
 
 # Allowed file extensions for audio files
 ALLOWED_EXTENSIONS = {'wav', 'mp3', 'txt'}
